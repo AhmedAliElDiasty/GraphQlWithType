@@ -9,7 +9,7 @@ interface Props {
 }
 
 const GET_POSTS = gql`
-query getPosts(page:$page){
+query getPosts($page: Int){
   posts(pagination:{
     limit:10 ,
     page: $page
@@ -55,21 +55,8 @@ export const Posts: React.FC<Props> = (props: Props) => {
         }}
         small={false}
         icon="plus"
-        onPress={() => {
+        onPress={() => { }}
           
-          fetchMore({
-            variables: {
-              page: page+1
-            },
-            // updateQuery: (prev, { fetchMoreResult }) => {
-            //   if (!fetchMoreResult) return prev;
-            //   return Object.assign({}, prev, {
-            //     posts: [...prev.posts, ...fetchMoreResult.posts]
-            //   });
-            // }
-          })
-          setpage(page+1)
-        }}
       />
 
 
